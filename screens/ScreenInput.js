@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { Appbar, Button, TextInput } from "react-native-paper";
+import img from "../assets/test.jpg";
 
 export default function ScreenInput({navigation}) {
   const [hp, setHp] = useState('');
@@ -11,13 +12,14 @@ export default function ScreenInput({navigation}) {
   
   return (
     <>
+    <ImageBackground source={img} style={styles.background}>
       <Appbar.Header>
         <Appbar.Content title="Cek Laptop/Computer" />
       </Appbar.Header>
       <View style={styles.container}>
         <Text>Nomor HP</Text>
         <TextInput
-          placeholder="Masukkan nomor hp"
+          placeholder="Masukkan Nomor Hp Anda"
           value={hp}
           onChangeText={(e) => setHp(e.target.value)}
         />
@@ -28,6 +30,7 @@ export default function ScreenInput({navigation}) {
           Cek Service
         </Button>
       </View>
+      </ImageBackground>
     </>
   );
 }
@@ -44,4 +47,8 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 16,
   },
+  background: {
+    height: "100%",
+  },
+
 });

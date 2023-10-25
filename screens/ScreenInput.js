@@ -4,11 +4,19 @@ import { Appbar, Button, TextInput } from "react-native-paper";
 import img from "../assets/test.jpg";
 
 export default function ScreenInput({navigation}) {
-  const [hp, setHp] = useState('');
+  const [hp, setHp] = useState("");
 
-  const toScreenHasil = () => {
-    
-  }
+  const handleChange = (value) => {
+    setHp(value);
+  };
+
+  const toScreenList = () => {
+    navigation.navigate("List", { hp });
+  };
+
+  const toScreenCheck = () => {
+    navigation.navigate("Pengecekan-Customer", { hp });
+  };
   
   return (
     <>
@@ -21,12 +29,18 @@ export default function ScreenInput({navigation}) {
         <TextInput
           placeholder="Masukkan Nomor Hp Anda"
           value={hp}
-          onChangeText={(e) => setHp(e.target.value)}
+          onChangeText={handleChange}
+          
+          
+          // onChangeText={(e) => setHp(e.target.value)}
+
+
+
         />
         {/* <TouchableOpacity style={styles.buttonTouch} onPress={toScreenHasil}>
           <Text>Cek Cucian</Text>
         </TouchableOpacity> */}
-        <Button icon="selection-search" mode="contained" onPress={toScreenHasil}>
+        <Button icon="selection-search" mode="contained" onPress={toScreenList}>
           Cek Service
         </Button>
       </View>

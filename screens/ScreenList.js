@@ -31,7 +31,7 @@ export default function ScreenList({ navigation, route }) {
             navigation.navigate("List");
           }}
         />
-        <Appbar.Content title="Hasil" />
+        <Appbar.Content title="List" />
       </Appbar.Header>
 
       <List.Section title={`${daftarTerima.length}`}>

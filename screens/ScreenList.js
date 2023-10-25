@@ -28,7 +28,7 @@ export default function ScreenList({ navigation, route }) {
       <Appbar.Header>
         <Appbar.BackAction
           onPress={() => {
-            navigation.navigate("/");
+            navigation.navigate("List");
           }}
         />
         <Appbar.Content title="Hasil" />
@@ -38,7 +38,7 @@ export default function ScreenList({ navigation, route }) {
         {daftarTerima.map((terima) => (
           <List.Accordion
             key={terima._id}
-            title={terima.customer.hp}
+            title={terima.barang.hp}
             expanded={expanded}
             onPress={handlePress}
             left={(props) => <List.Icon {...props} icon="folder" />}

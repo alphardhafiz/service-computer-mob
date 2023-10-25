@@ -34,18 +34,18 @@ export default function ScreenList({ navigation, route }) {
         <Appbar.Content title="Hasil" />
       </Appbar.Header>
 
-      <List.Section title={`${daftarTerima.length} cucian...`}>
+      <List.Section title={`${daftarTerima.length}`}>
         {daftarTerima.map((terima) => (
           <List.Accordion
             key={terima._id}
-            title={terima.customer.nama}
+            title={terima.customer.hp}
             expanded={expanded}
             onPress={handlePress}
             left={(props) => <List.Icon {...props} icon="folder" />}
             right={(props) => <Text>{terima.status}</Text>}>
             {terima.details.map((item, index) => (
               <>
-                <List.Item key={index} title={item.nama} />
+                <List.Item key={index} title={item.hp} />
               </>
             ))}
           </List.Accordion>

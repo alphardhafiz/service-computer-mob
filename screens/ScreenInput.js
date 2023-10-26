@@ -32,11 +32,11 @@ export default function ScreenInput({navigation}) {
           onChangeText={handleChange}
           
           
+          
           // onChangeText={(e) => setHp(e.target.value)}
 
-
-
         />
+
         {/* <TouchableOpacity style={styles.buttonTouch} onPress={toScreenHasil}>
           <Text>Cek Cucian</Text>
         </TouchableOpacity> */}

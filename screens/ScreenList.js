@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
@@ -13,14 +13,17 @@ export default function ScreenList({ navigation, route }) {
   
     useEffect(() => {
       if (route.params.hp) {
-        fetch(`http://localhost:19006/api/barang/${route.params.hp}/list`)
+        fetch(`http://192.168.18.6:4000/barang/customerList/${route.params.hp}`)
           .then((response) => response.json())
           .then((json) => {
+            console.log(json[0]);
             setDaftarTerima(json);
           })
           .catch((err) => console.log(err));
       }
     }, []);
+
+    console.log(daftarTerima);
 
 
   return (
@@ -28,32 +31,31 @@ export default function ScreenList({ navigation, route }) {
       <Appbar.Header>
         <Appbar.BackAction
           onPress={() => {
-            navigation.navigate("List");
+            navigation.navigate("Home");
           }}
         />
         <Appbar.Content title="List" />
       </Appbar.Header>
 
       <List.Section title={`${daftarTerima.length}`}>
-        {daftarTerima.map((terima) => (
+        {daftarTerima && daftarTerima.map((terima) => (
+          
           <List.Accordion
             key={terima._id}
-            title={terima.barang.hp}
+            title={terima.namaBarang}
             expanded={expanded}
             onPress={handlePress}
             left={(props) => <List.Icon {...props} icon="folder" />}
             right={(props) => <Text>{terima.status}</Text>}>
-            {terima.details.map((item, index) => (
-              <>
-                <List.Item key={index} title={item.hp} />
-              </>
-            ))}
+
           </List.Accordion>
         ))}
       </List.Section>
     </View>
   );
 }
+
+
 
 const styles = StyleSheet.create({
   container: {},

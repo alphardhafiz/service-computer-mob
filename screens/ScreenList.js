@@ -13,7 +13,7 @@ export default function ScreenList({ navigation, route }) {
   
     useEffect(() => {
       if (route.params.hp) {
-        fetch(`http://192.168.18.6:4000/barang/customerList/${route.params.hp}`)
+        fetch(`http://192.168.228.206:4000/barang/customerList/${route.params.hp}`)
           .then((response) => response.json())
           .then((json) => {
             console.log(json[0]);
@@ -37,7 +37,7 @@ export default function ScreenList({ navigation, route }) {
         <Appbar.Content title="List" />
       </Appbar.Header>
 
-      <List.Section title={`${daftarTerima.length}`}>
+      <List.Section title={`${daftarTerima.length} barang ...`}>
         {daftarTerima && daftarTerima.map((terima) => (
           
           <List.Accordion

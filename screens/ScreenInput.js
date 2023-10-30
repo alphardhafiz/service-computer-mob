@@ -25,7 +25,7 @@ export default function ScreenInput({navigation}) {
         <Appbar.Content title="Cek Laptop/Computer" />
       </Appbar.Header>
       <View style={styles.container}>
-        <Text>Nomor HP</Text>
+        
         <TextInput
           placeholder="Masukkan Nomor Hp Anda"
           value={hp}

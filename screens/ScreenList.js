@@ -37,7 +37,7 @@ export default function ScreenList({ navigation, route }) {
         <Appbar.Content title="List" />
       </Appbar.Header>
 
-      <List.Section title={`${daftarTerima.length} barang ...`}>
+      <List.Section title={`${daftarTerima.length} barang`}>
         {daftarTerima && daftarTerima.map((terima) => (
           
           <List.Accordion
@@ -45,7 +45,7 @@ export default function ScreenList({ navigation, route }) {
             title={terima.namaBarang}
             expanded={expanded}
             onPress={handlePress}
-            left={(props) => <List.Icon {...props} icon="folder" />}
+            left={(props) => <List.Icon {...props} icon="laptop" />}
             right={(props) => <Text>{terima.status}</Text>}>
 
           </List.Accordion>
